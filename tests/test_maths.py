@@ -5,8 +5,9 @@ from algorithms.maths import (
     extended_gcd,
     factorial, factorial_recur,
     gcd, lcm,
-    gen_strobogrammatic, strobogrammatic_in_range,
-    is_strobogrammatic, is_strobogrammatic2,
+    gen_strobogrammatic, strobogrammatic_in_range, 
+    is_strobogrammatic1, is_strobogrammatic2, 
+    is_strobogrammatic3,
     modular_exponential,
     find_next_square, find_next_square2,
     prime_check,
@@ -111,10 +112,14 @@ class TestGenerateStroboGrammatic(unittest.TestCase):
     """
 
     def test_gen_strobomatic(self):
-        self.assertEqual(['88', '11', '96', '69'], gen_strobogrammatic(2))
+        self.assertEqual(sorted(['88', '11', '96', '69']), sorted(gen_strobogrammatic(2)))
 
     def test_strobogrammatic_in_range(self):
         self.assertEqual(4, strobogrammatic_in_range("10", "100"))
+
+    def test_is_strobogrammatic(self):
+        self.assertTrue(is_strobogrammatic1("69"))
+        self.assertFalse(is_strobogrammatic1("14"))
 
 
 class TestIsStrobogrammatic(unittest.TestCase):
@@ -125,13 +130,13 @@ class TestIsStrobogrammatic(unittest.TestCase):
         unittest {[type]} -- [description]
     """
 
-    def test_is_strobogrammatic(self):
-        self.assertTrue(is_strobogrammatic("69"))
-        self.assertFalse(is_strobogrammatic("14"))
-
     def test_is_strobogrammatic2(self):
         self.assertTrue(is_strobogrammatic2("69"))
         self.assertFalse(is_strobogrammatic2("14"))
+
+    def test_is_strobogrammatic3(self):
+        self.assertTrue(is_strobogrammatic3("69"))
+        self.assertFalse(is_strobogrammatic3("14"))
 
 
 class TestModularExponential(unittest.TestCase):
