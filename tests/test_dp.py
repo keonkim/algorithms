@@ -13,7 +13,8 @@ from algorithms.dp import (
     longest_increasing_subsequence,
     longest_increasing_subsequence_optimized,
     longest_increasing_subsequence_optimized2,
-    int_divide
+    int_divide,
+    palindrome
 )
 
 
@@ -155,6 +156,14 @@ class TestIntDivide(unittest.TestCase):
         self.assertEqual(42, int_divide(10))
         self.assertEqual(204226, int_divide(50))
 
+class TestPalindrome(unittest.TestCase):
+    def test_palindrome(self):
+        from_to=[[1,2],[2,3],[2,4],[1,4],[1,5],[3,5]]
+        self.assertEqual(palindrome([2,3,3,3,2,1],from_to),[0, 1, 1, 0, 1, 0])
+        self.assertEqual(palindrome([1,2,3,4,3,2,1],from_to),[0, 0, 0, 0, 0, 1])
+        self.assertEqual(palindrome([1,1,1,1,1],from_to),[1,1,1,1,1,1])
 
+        
+        
 if __name__ == '__main__':
     unittest.main()
